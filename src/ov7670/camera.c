@@ -22,7 +22,7 @@ static bool start_get_image = false;
 static bool new_frame_FIFO_ready = false;
 
 //static uint8_t img[CAM_WIDTH * CAM_HEIGHT * 2];
-//static uint8_t img_gray[CAM_WIDTH * CAM_HEIGHT];
+//
 static const int collect_w_step = OV_WIDTH / CAM_WIDTH;
 static const int collect_h_step = OV_HEIGHT / CAM_HEIGHT;
 uint8_t gray;
@@ -53,14 +53,8 @@ uint8_t cam_init(void)
     /* restore. */
     SCCB_Init();
     if (SCCB_WR_Reg(0x12, 0x80)) return 1;
-//    R_BSP_SoftwareDelay(50, BSP_DELAY_MILLISECS);
-
 
     /* read product ID. */
-//    softSCCB_ReadReg(0x0b, &device_id, 1);
-//    if (device_id != 0x73) return 2;
-//    softSCCB_ReadReg(0x0a, &device_id, 1);
-//    if (device_id != 0x76) return 2;
 
  	temp=SCCB_RD_Reg(0x0b);
 	if(temp!=0x73)return 2;
@@ -90,7 +84,7 @@ uint8_t read_img_from_FIFO(void)
     else
     {
     	OE = SET_BIT_LOW;
-    	R_SCI1_AsyncTransmit(start,2);
+//    	R_SCI1_AsyncTransmit(start,2);
         reset_read_FIFO();
         for (j=0; j < OV_WIDTH; j++)
         {
@@ -107,7 +101,7 @@ uint8_t read_img_from_FIFO(void)
             }
         }
         OE = SET_BIT_HIGH;
-        R_SCI1_AsyncTransmit(end,2);
+//        R_SCI1_AsyncTransmit(end,2);
         /* read over, start next image. */
         new_frame_FIFO_ready = false;
         first_VSYNC = true;
@@ -119,9 +113,9 @@ uint8_t read_img_from_FIFO(void)
 void put_image_to_show()
 {
 //	yuv_to_gray(img);
-//	R_SCI1_AsyncTransmit(start,2);
-//	R_SCI1_AsyncTransmit(img_gray,CAM_WIDTH * CAM_HEIGHT);
-//	R_SCI1_AsyncTransmit(end,2);
+	R_SCI1_AsyncTransmit(start,2);
+	R_SCI1_AsyncTransmit(img_gray,CAM_WIDTH * CAM_HEIGHT);
+	R_SCI1_AsyncTransmit(end,2);
 
 }
 void yuv_to_gray(unsigned char *image)
@@ -132,6 +126,21 @@ void yuv_to_gray(unsigned char *image)
 //		img_gray[i]=img[i*2];
 	}
 }
+void image_binaryzation(uint8_t threshold)
+{
+	image_binaryzation_fix(img_gray,CAM_WIDTH * CAM_HEIGHT,threshold);
+}
+uint8_t image_binaryzation_fix(uint8_t *img_buf, uint32_t size,uint8_t threshold)
+{
+	uint32_t i;
+	for (i = 0; i < size; i++)
+	{
+		img_buf[i] = img_buf[i] < threshold ? 0xff : 0;
+
+	}
+	return 0;
+}
+
 void get_img(unsigned char **image, int *width, int *height)
 {
 //    *image  = img;
@@ -168,13 +177,15 @@ static void get_data(int i, int j)
 {
     RCK_L;
 //    img[(i/collect_h_step * CAM_WIDTH + j/collect_w_step) * 2] = FIFO_DATA;
-    gray=FIFO_DATA;
+    img_gray[i/collect_h_step * CAM_WIDTH + j/collect_w_step]=FIFO_DATA;
+//    img_gray[i/collect_h_step * CAM_WIDTH + j/collect_w_step]=FIFO_DATA < 100 ? 0xff : 0;//元数据直接二值化
+//    gray=FIFO_DATA;
     RCK_H;
     RCK_L;
 //    img[(i/collect_h_step * CAM_WIDTH + j/collect_w_step) * 2 + 1] = FIFO_DATA;
 //    img_gray[(i/collect_h_step * CAM_WIDTH + j/collect_w_step)] = FIFO_DATA;
     RCK_H;
-    R_SCI1_AsyncTransmit(&gray,1);
+//    R_SCI1_AsyncTransmit(&gray,1);
 }
 
 static void get_none(void)

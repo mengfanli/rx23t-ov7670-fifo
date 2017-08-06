@@ -1,4 +1,4 @@
-Renesas Optimizing Linker (W2.06.00 )             06-Aug-2017 14:09:10
+Renesas Optimizing Linker (W2.06.00 )             06-Aug-2017 17:18:28
 
 *** Options ***
 
@@ -48,17 +48,17 @@ SU
 SI
                                   00000104  00000403       300   4
 B_1
-                                  00000404  00000406         3   1
+                                  00000404  000008b6       4b3   1
 R_1
-                                  00000407  00000410         a   1
+                                  000008b7  000008c0         a   1
 B_2
-                                  00000412  0000081d       40c   2
+                                  000008c2  00000ccd       40c   2
 R_2
-                                  0000081e  0000081f         2   2
+                                  00000cce  00000ccf         2   2
 B
-                                  00000820  0000082f        10   4
+                                  00000cd0  00000cdf        10   4
 R
-                                  00000830  00000833         4   4
+                                  00000ce0  00000ce3         4   4
 PResetPRG
                                   fffe0000  fffe003d        3e   1
 C_1
@@ -94,7 +94,7 @@ L
 PIntPRG
                                   fffe0628  fffe0635         e   1
 P
-                                  fffe0636  fffe14dc       ea7   1
+                                  fffe0636  fffe155b       f26   1
 EXCEPTVECT
                                   ffffff80  fffffffb        7c   4
 RESETVECT
@@ -124,79 +124,81 @@ FILE=.\src\cg_src\r_cg_sci_user.obj
   _sci1_txdone
                                   00000405         1   data ,l         7
 FILE=.\src\ov7670\camera.obj
-                                  00000406  00000406         1
+                                  00000406  000008b6       4b1
+  _img_gray
+                                  00000406       4b0   data ,l         3
   _gray
-                                  00000406         1   data ,g         2
+                                  000008b6         1   data ,g         0
 
 SECTION=R_1
 FILE=.\src\cg_src\r_cg_icu_user.obj
-                                  00000407  00000407         1
+                                  000008b7  000008b7         1
   _ov_sta
-                                  00000407         1   data ,g         0
+                                  000008b7         1   data ,g         0
 FILE=.\src\cg_src\r_cg_sci_user.obj
-                                  00000408  00000408         1
+                                  000008b8  000008b8         1
   _g_tx_flag
-                                  00000408         1   data ,g         0
+                                  000008b8         1   data ,g         0
 FILE=.\src\delay\delay.obj
-                                  00000409  00000409         1
+                                  000008b9  000008b9         1
   _time_flag
-                                  00000409         1   data ,g         3
+                                  000008b9         1   data ,g         3
 FILE=.\src\ov7670\camera.obj
-                                  0000040a  00000410         7
+                                  000008ba  000008c0         7
   _first_VSYNC
-                                  0000040a         1   data ,l         3
+                                  000008ba         1   data ,l         3
   _start_get_image
-                                  0000040b         1   data ,l         4
+                                  000008bb         1   data ,l         4
   _new_frame_FIFO_ready
-                                  0000040c         1   data ,l         3
+                                  000008bc         1   data ,l         3
   _start
-                                  0000040d         2   data ,g         1
+                                  000008bd         2   data ,g         1
   _end
-                                  0000040f         2   data ,g         1
+                                  000008bf         2   data ,g         1
 
 SECTION=B_2
 FILE=.\src\cg_src\r_cg_sbrk.obj
-                                  00000412  00000811       400
+                                  000008c2  00000cc1       400
   _heap_area
-                                  00000412       400   data ,l         2
+                                  000008c2       400   data ,l         2
 FILE=.\src\cg_src\r_cg_sci.obj
-                                  00000812  0000081d         c
+                                  00000cc2  00000ccd         c
   _g_sci1_tx_count
-                                  00000812         2   data ,g         3
+                                  00000cc2         2   data ,g         3
   _g_sci1_rx_count
-                                  00000814         2   data ,g         4
+                                  00000cc4         2   data ,g         4
   _g_sci1_rx_length
-                                  00000816         2   data ,g         3
+                                  00000cc6         2   data ,g         3
   _g_sci5_tx_count
-                                  00000818         2   data ,g         3
+                                  00000cc8         2   data ,g         3
   _g_sci5_rx_count
-                                  0000081a         2   data ,g         4
+                                  00000cca         2   data ,g         4
   _g_sci5_rx_length
-                                  0000081c         2   data ,g         3
+                                  00000ccc         2   data ,g         3
 
 SECTION=R_2
 FILE=.\src\delay\delay.obj
-                                  0000081e  0000081f         2
+                                  00000cce  00000ccf         2
   _time_count
-                                  0000081e         2   data ,g         3
+                                  00000cce         2   data ,g         3
 
 SECTION=B
 FILE=.\src\cg_src\r_cg_sci.obj
-                                  00000820  0000082f        10
+                                  00000cd0  00000cdf        10
   _gp_sci1_tx_address
-                                  00000820         4   data ,g         3
+                                  00000cd0         4   data ,g         3
   _gp_sci1_rx_address
-                                  00000824         4   data ,g         3
+                                  00000cd4         4   data ,g         3
   _gp_sci5_tx_address
-                                  00000828         4   data ,g         3
+                                  00000cd8         4   data ,g         3
   _gp_sci5_rx_address
-                                  0000082c         4   data ,g         3
+                                  00000cdc         4   data ,g         3
 
 SECTION=R
 FILE=.\src\cg_src\r_cg_sbrk.obj
-                                  00000830  00000833         4
+                                  00000ce0  00000ce3         4
   _brk
-                                  00000830         4   data ,l         3
+                                  00000ce0         4   data ,l         3
 
 SECTION=PResetPRG
 FILE=.\src\cg_src\r_cg_resetprg.obj
@@ -218,9 +220,9 @@ FILE=.\src\cg_src\r_cg_dbsct.obj
 FILE=.\src\ov7670\camera.obj
                                   fffe01d4  fffe01db         8
   _collect_w_step
-                                  fffe01d4         4   data ,l         1
+                                  fffe01d4         4   data ,l         2
   _collect_h_step
-                                  fffe01d8         4   data ,l         1
+                                  fffe01d8         4   data ,l         2
 
 SECTION=C$DSEC
 FILE=.\src\cg_src\r_cg_dbsct.obj
@@ -318,147 +320,151 @@ FILE=.\src\cg_src\r_cg_icu_user.obj
   _r_icu_irq0_interrupt
                                   fffe0853         e   func ,l         0
 FILE=.\src\cg_src\r_cg_main.obj
-                                  fffe0861  fffe0894        34
+                                  fffe0861  fffe089f        3f
   _main
                                   fffe0861         8   func ,g         1
   _R_MAIN_UserInit
-                                  fffe0869        2b   func ,l         1
+                                  fffe0869        36   func ,l         1
   _write
-                                  fffe0894         1   func ,g         1
+                                  fffe089f         1   func ,g         1
 FILE=.\src\cg_src\r_cg_port.obj
-                                  fffe0895  fffe08d1        3d
+                                  fffe08a0  fffe08dc        3d
   _R_PORT_Create
-                                  fffe0895        3d   func ,g         1
+                                  fffe08a0        3d   func ,g         1
 FILE=.\src\cg_src\r_cg_sbrk.obj
-                                  fffe08d2  fffe090d        3c
+                                  fffe08dd  fffe0918        3c
   _sbrk
-                                  fffe08d2        3c   func ,g         0
+                                  fffe08dd        3c   func ,g         0
 FILE=.\src\cg_src\r_cg_sci.obj
-                                  fffe090e  fffe0c7b       36e
+                                  fffe0919  fffe0c86       36e
   _R_SCI1_Create
-                                  fffe090e        99   func ,g         1
+                                  fffe0919        99   func ,g         1
   _R_SCI1_Start
-                                  fffe09a7        34   func ,g         2
+                                  fffe09b2        34   func ,g         2
   _R_SCI1_Stop
-                                  fffe09db        5c   func ,g         0
+                                  fffe09e6        5c   func ,g         0
   _R_SCI1_Serial_Receive
-                                  fffe0a37        46   func ,g         0
+                                  fffe0a42        46   func ,g         0
   _R_SCI1_Serial_Send
-                                  fffe0a7d        48   func ,g         1
+                                  fffe0a88        48   func ,g         1
   _R_SCI5_Create
-                                  fffe0ac5        99   func ,g         1
+                                  fffe0ad0        99   func ,g         1
   _R_SCI5_Start
-                                  fffe0b5e        34   func ,g         0
+                                  fffe0b69        34   func ,g         0
   _R_SCI5_Stop
-                                  fffe0b92        5c   func ,g         0
+                                  fffe0b9d        5c   func ,g         0
   _R_SCI5_Serial_Receive
-                                  fffe0bee        46   func ,g         0
+                                  fffe0bf9        46   func ,g         0
   _R_SCI5_Serial_Send
-                                  fffe0c34        48   func ,g         0
+                                  fffe0c3f        48   func ,g         0
 FILE=.\src\cg_src\r_cg_sci_user.obj
-                                  fffe0c7c  fffe0f4c       2d1
+                                  fffe0c87  fffe0f57       2d1
   _r_sci1_transmit_interrupt
-                                  fffe0c7c        4c   func ,l         0
+                                  fffe0c87        4c   func ,l         0
   _r_sci1_transmitend_interrupt
-                                  fffe0cc8        2e   func ,l         0
+                                  fffe0cd3        2e   func ,l         0
   _r_sci1_receive_interrupt
-                                  fffe0cf6        60   func ,l         0
+                                  fffe0d01        60   func ,l         0
   _r_sci1_receiveerror_interrupt
-                                  fffe0d56        31   func ,l         0
+                                  fffe0d61        31   func ,l         0
   _r_sci1_callback_transmitend
-                                  fffe0d87         a   func ,l         1
+                                  fffe0d92         a   func ,l         1
   _r_sci1_callback_receiveend
-                                  fffe0d91         1   func ,l         1
+                                  fffe0d9c         1   func ,l         1
   _r_sci1_callback_receiveerror
-                                  fffe0d92         1   func ,l         1
+                                  fffe0d9d         1   func ,l         1
   _r_sci5_transmit_interrupt
-                                  fffe0d93        4c   func ,l         0
+                                  fffe0d9e        4c   func ,l         0
   _r_sci5_transmitend_interrupt
-                                  fffe0ddf        2e   func ,l         0
+                                  fffe0dea        2e   func ,l         0
   _r_sci5_receive_interrupt
-                                  fffe0e0d        60   func ,l         0
+                                  fffe0e18        60   func ,l         0
   _r_sci5_receiveerror_interrupt
-                                  fffe0e6d        31   func ,l         0
+                                  fffe0e78        31   func ,l         0
   _r_sci5_callback_transmitend
-                                  fffe0e9e         1   func ,l         1
+                                  fffe0ea9         1   func ,l         1
   _r_sci5_callback_receiveend
-                                  fffe0e9f         1   func ,l         1
+                                  fffe0eaa         1   func ,l         1
   _r_sci5_callback_receiveerror
-                                  fffe0ea0         1   func ,l         1
+                                  fffe0eab         1   func ,l         1
   _R_SCI1_AsyncTransmit
-                                  fffe0ea1        32   func ,g         4
+                                  fffe0eac        32   func ,g         4
   _r_sci1_sendonechar
-                                  fffe0ed3        3d   func ,g         0
+                                  fffe0ede        3d   func ,g         0
   _r_sci1_sendoneWORD
-                                  fffe0f10        3d   func ,g         0
+                                  fffe0f1b        3d   func ,g         0
 FILE=.\src\delay\delay.obj
-                                  fffe0f4d  fffe0fcb        7f
+                                  fffe0f58  fffe0fd6        7f
   _CMT0_Init
-                                  fffe0f4d         5   func ,g         0
+                                  fffe0f58         5   func ,g         0
   _delayms
-                                  fffe0f52        2f   func ,g         0
+                                  fffe0f5d        2f   func ,g         0
   _delay_ms
-                                  fffe0f81        1d   func ,g         0
+                                  fffe0f8c        1d   func ,g         0
   _delay_us
-                                  fffe0f9e        1b   func ,g        15
+                                  fffe0fa9        1b   func ,g        15
   _CMT0_IntHandler
-                                  fffe0fb9        13   func ,g         1
+                                  fffe0fc4        13   func ,g         1
 FILE=.\src\ov7670\camera.obj
-                                  fffe0fcc  fffe123c       271
+                                  fffe0fd7  fffe12bb       2e5
   _cam_init
-                                  fffe0fcc        88   func ,g         1
+                                  fffe0fd7        88   func ,g         1
   _read_img_from_FIFO
-                                  fffe1054        dd   func ,g         1
+                                  fffe105f        c5   func ,g         1
   _put_image_to_show
-                                  fffe1131         1   func ,g         0
+                                  fffe1124        27   func ,g         1
   _yuv_to_gray
-                                  fffe1132        1b   func ,g         0
+                                  fffe114b        1b   func ,g         0
+  _image_binaryzation
+                                  fffe1166        15   func ,g         1
+  _image_binaryzation_fix
+                                  fffe117b        3d   func ,g         1
   _get_img
-                                  fffe114d         a   func ,g         0
+                                  fffe11b8         a   func ,g         0
   _IRQ0_IntHandler
-                                  fffe1157        61   func ,g         1
+                                  fffe11c2        61   func ,g         1
   _reset_read_FIFO
-                                  fffe11b8        2b   func ,l         1
+                                  fffe1223        2b   func ,l         1
   _get_data
-                                  fffe11e3        3d   func ,l         1
+                                  fffe124e        51   func ,l         1
   _get_none
-                                  fffe1220        1d   func ,l         1
+                                  fffe129f        1d   func ,l         1
 FILE=.\src\ov7670\sccb.obj
-                                  fffe123d  fffe1471       235
+                                  fffe12bc  fffe14f0       235
   _SCCB_Init
-                                  fffe123d        18   func ,g         1
+                                  fffe12bc        18   func ,g         1
   _SCCB_Start
-                                  fffe1255        2b   func ,g         3
+                                  fffe12d4        2b   func ,g         3
   _SCCB_Stop
-                                  fffe1280        2b   func ,g         3
+                                  fffe12ff        2b   func ,g         3
   _SCCB_No_Ack
-                                  fffe12ab        39   func ,g         1
+                                  fffe132a        39   func ,g         1
   _SCCB_WR_Byte
-                                  fffe12e4        93   func ,g         6
+                                  fffe1363        93   func ,g         6
   _SCCB_RD_Byte
-                                  fffe1377        61   func ,g         1
+                                  fffe13f6        61   func ,g         1
   _SCCB_WR_Reg
-                                  fffe13d8        48   func ,g         2
+                                  fffe1457        48   func ,g         2
   _SCCB_RD_Reg
-                                  fffe1420        52   func ,g         2
+                                  fffe149f        52   func ,g         2
 FILE=.\src\uart\r_rsk_async.obj
-                                  fffe1472  fffe1492        21
+                                  fffe14f1  fffe1511        21
   _R_ASYNC_Init
-                                  fffe1472         5   func ,g         0
+                                  fffe14f1         5   func ,g         0
   _text_write
-                                  fffe1477        1c   func ,g         0
+                                  fffe14f6        1c   func ,g         0
 FILE=__initsct
-                                  fffe1493  fffe14dc        4a
+                                  fffe1512  fffe155b        4a
   __INITSCT
-                                  fffe1493         0   none ,g         1
+                                  fffe1512         0   none ,g         1
   loop1
-                                  fffe14a5         0   none ,l         1
+                                  fffe1524         0   none ,l         1
   next_loop1
-                                  fffe14b3         0   none ,l         2
+                                  fffe1532         0   none ,l         2
   loop3
-                                  fffe14c5         0   none ,l         1
+                                  fffe1544         0   none ,l         1
   next_loop3
-                                  fffe14d6         0   none ,l         2
+                                  fffe1555         0   none ,l         2
 
 SECTION=EXCEPTVECT
 FILE=.\src\cg_src\r_cg_vecttbl.obj

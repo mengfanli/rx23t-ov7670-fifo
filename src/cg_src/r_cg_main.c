@@ -111,7 +111,8 @@ void R_MAIN_UserInit(void)
 	while(1)
 	{
 		read_img_from_FIFO();//更新显示
-//		put_image_to_show();
+		image_binaryzation(120);
+		put_image_to_show();
 
 	}
     /* End user code. Do not edit comment generated here */
