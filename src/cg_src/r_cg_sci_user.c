@@ -61,6 +61,7 @@ volatile uint8_t g_tx_flag = FALSE;
 
 /* Flag used locally to detect transmission complete */
 static volatile uint8_t sci1_txdone;
+static volatile uint8_t sci5_txdone;
 /* End user code. Do not edit comment generated here */
 
 /***********************************************************************************************************************
@@ -232,7 +233,7 @@ static void r_sci5_transmit_interrupt(void)
 static void r_sci5_transmitend_interrupt(void)
 {
     /* Set TXD5 pin */
-    PORTB.PMR.BYTE &= 0xFBU;
+    PORTB.PMR.BYTE &= 0xFBU;//0000 0100//1011
     SCI5.SCR.BIT.TIE = 0U;
     SCI5.SCR.BIT.TE = 0U;
     SCI5.SCR.BIT.TEIE = 0U;
@@ -296,6 +297,7 @@ static void r_sci5_receiveerror_interrupt(void)
 static void r_sci5_callback_transmitend(void)
 {
     /* Start user code. Do not edit comment generated here */
+	sci5_txdone=true;
     /* End user code. Do not edit comment generated here */
 }
 /***********************************************************************************************************************
@@ -350,15 +352,32 @@ MD_STATUS R_SCI1_AsyncTransmit (uint8_t * const tx_buf, const uint16_t tx_num)
     return (status);
 }
 
-void r_sci1_sendonechar(uint8_t character)
+MD_STATUS R_SCI5_AsyncTransmit (uint8_t * const tx_buf, const uint16_t tx_num)
+{
+    MD_STATUS status = MD_OK;
+
+    /* clear the flag before initiating a new transmission */
+    sci5_txdone = FALSE;
+
+    /* Send the data using the API */
+    status = R_SCI5_Serial_Send(tx_buf, tx_num);
+
+    /* Wait for the transmit end flag */
+    while (FALSE == sci5_txdone)
+    {
+        /* Wait */
+    }
+    return (status);
+}
+void r_sci5_sendonechar(uint8_t character)
 {
 //	uint8_t TX_buff[1]=character;
 //	R_SCI1_Serial_Send(TX_buff,1);
-	sci1_txdone = FALSE;
-	SCI1.TDR =character;
-	PORTD.PMR.BYTE |=0X08U;
-	SCI1.SCR.BIT.TIE =1U;
-	SCI1.SCR.BIT.TE=1U;
+	sci5_txdone = FALSE;
+	SCI5.TDR =character;
+	PORTB.PMR.BYTE |=0X02U;
+	SCI5.SCR.BIT.TIE =1U;
+	SCI5.SCR.BIT.TE=1U;
     while (FALSE == sci1_txdone)
     {
         /* Wait */

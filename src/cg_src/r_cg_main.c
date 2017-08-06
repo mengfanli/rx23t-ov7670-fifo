@@ -53,6 +53,7 @@ Global variables and functions
 /* Start user code for global. Do not edit comment generated here */
 extern uint8_t ov_frame;	//在timer.c里面定义
 extern uint8_t ov_sta;	//帧中断标记
+uint8_t point_x,point_y;
 void camera_refresh(void);
 extern void R_FIFO_Create(void);
 void write(void);
@@ -93,6 +94,7 @@ void R_MAIN_UserInit(void)
 //	R_CMT0_Start();
 //	R_CMT1_Start();
 	R_SCI1_Start();
+	R_SCI5_Start();
 	R_ICU_IRQ0_Start();
 
 //	OV7670_Light_Mode(lightmode);
@@ -112,7 +114,9 @@ void R_MAIN_UserInit(void)
 	{
 		read_img_from_FIFO();//更新显示
 		image_binaryzation(120);
+		detect_point();
 		put_image_to_show();
+
 
 	}
     /* End user code. Do not edit comment generated here */

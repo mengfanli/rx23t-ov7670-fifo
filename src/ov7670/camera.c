@@ -140,6 +140,51 @@ uint8_t image_binaryzation_fix(uint8_t *img_buf, uint32_t size,uint8_t threshold
 	}
 	return 0;
 }
+void detect_point()
+{
+	point_detect(img_gray,CAM_WIDTH ,CAM_HEIGHT,&point_x,&point_y);
+}
+void point_detect(uint8_t *img_buf,uint8_t img_width,uint8_t img_hight,uint8_t *point_x,uint8_t *point_y)
+{
+	uint8_t i,j;
+//	uint32_t size=img_width*img_hight;
+	uint32_t location_sum_h=0;
+	uint32_t location_sum_w=0;
+//	uint32_t location=0;
+	uint32_t surrond_buf=0;
+	uint16_t black_point_num=0;
+	for ( i = 1; i < img_hight-1; i++)
+	{
+		for( j = 1; j < img_width-1; j++)
+		{
+			if(img_buf[(i)*img_width+j]==0xff)
+			{
+			surrond_buf = img_buf[(i-1)*img_width+j-1]+img_buf[(i-1)*img_width+j]+img_buf[(i-1)*img_width+j+1]
+					   +img_buf[(i)*img_width+j-1]  +img_buf[(i)*img_width+j]  +img_buf[(i)*img_width + j+1]
+					   +img_buf[(i+1)*img_width+j-1]+img_buf[(i+1)*img_width+j]+img_buf[(i+1)*img_width+j+1];
+			if(surrond_buf==0x000000ff*9)
+			{
+				black_point_num++;
+				location_sum_w+=j;
+				location_sum_h+=i;
+			}
+			}
+		}
+	}
+	if(black_point_num>CAM_WIDTH * CAM_HEIGHT/3)
+	{
+		*point_x=(uint8_t)CAM_WIDTH/2;
+		*point_y=(uint8_t)CAM_HEIGHT/2;
+	}
+	else{
+//	location=location_sum / black_point_num;
+	*point_x=(uint8_t)(location_sum_w/black_point_num);
+	*point_y=(uint8_t)(location_sum_h/black_point_num);
+//	*point_y=location%img_width;
+	}
+	R_SCI5_AsyncTransmit(point_x,1);
+	R_SCI5_AsyncTransmit(point_y,1);
+}
 
 void get_img(unsigned char **image, int *width, int *height)
 {
