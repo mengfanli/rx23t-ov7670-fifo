@@ -1,0 +1,726 @@
+Renesas Optimizing Linker (W2.06.00 )             02-Aug-2017 10:16:06
+
+*** Options ***
+
+-subcommand=LinkerSubCommand.tmp
+-input="./src/cg_src/r_cg_cgc.obj"
+-input="./src/cg_src/r_cg_cgc_user.obj"
+-input="./src/cg_src/r_cg_cmt.obj"
+-input="./src/cg_src/r_cg_cmt_user.obj"
+-input="./src/cg_src/r_cg_dbsct.obj"
+-input="./src/cg_src/r_cg_hardware_setup.obj"
+-input="./src/cg_src/r_cg_icu.obj"
+-input="./src/cg_src/r_cg_icu_user.obj"
+-input="./src/cg_src/r_cg_intprg.obj"
+-input="./src/cg_src/r_cg_main.obj"
+-input="./src/cg_src/r_cg_port.obj"
+-input="./src/cg_src/r_cg_port_user.obj"
+-input="./src/cg_src/r_cg_resetprg.obj"
+-input="./src/cg_src/r_cg_sbrk.obj"
+-input="./src/cg_src/r_cg_sci.obj"
+-input="./src/cg_src/r_cg_sci_user.obj"
+-input="./src/cg_src/r_cg_vecttbl.obj"
+-input="./src/delay/delay.obj"
+-input="./src/ov7670/ov7670.obj"
+-input="./src/ov7670/sccb.obj"
+-input="./src/uart/r_rsk_async.obj"
+-start=SU,SI,B_1,R_1,B_2,R_2,B,R/04,PResetPRG,C_1,C_2,C,C$*,D*,W*,L,PIntPRG,P/0FFFE0000,EXCEPTVECT/0FFFFFF80,RESETVECT/0FFFFFFFC
+-map=ov7670.bls
+-library=E:\e2studio\workspace\ov7670\Debug\ov7670.lib
+-noprelink
+-list=ov7670.map
+-show
+-nooptimize
+-debug
+-output=E:\e2studio\workspace\ov7670\Debug\ov7670.abs
+-rom=D=R,D_1=R_1,D_2=R_2
+-nocompress
+-nomessage
+-nologo
+
+*** Error information ***
+
+*** Mapping List ***
+
+SECTION                            START      END         SIZE   ALIGN
+
+SU
+                                  00000004  00000103       100   4
+SI
+                                  00000104  00000403       300   4
+B_1
+                                  00000404  00000405         2   1
+R_1
+                                  00000406  00000457        52   1
+B_2
+                                  00000458  0000085d       406   2
+R_2
+                                  0000085e  0000085f         2   2
+B
+                                  00000860  000008bb        5c   4
+R
+                                  000008bc  00000b03       248   4
+PResetPRG
+                                  fffe0000  fffe003d        3e   1
+C_1
+                                  fffe003e  fffe025f       222   1
+C_2
+                                  fffe0260  fffe0461       202   2
+C
+                                  fffe0464  fffe04cf        6c   4
+C$DSEC
+                                  fffe04d0  fffe04f3        24   4
+C$BSEC
+                                  fffe04f4  fffe050b        18   4
+C$INIT
+                                  fffe050c  fffe050c         0   1
+C$VECT
+                                  fffe050c  fffe090b       400   4
+C$VTBL
+                                  fffe090c  fffe090c         0   1
+D
+                                  fffe090c  fffe0b53       248   4
+D_1
+                                  fffe0b54  fffe0ba5        52   1
+D_2
+                                  fffe0ba6  fffe0ba7         2   2
+W
+                                  fffe0ba8  fffe0ba8         0   1
+W_1
+                                  fffe0ba8  fffe0ba8         0   1
+W_2
+                                  fffe0ba8  fffe0ba8         0   1
+L
+                                  fffe0ba8  fffe0bf4        4d   4
+PIntPRG
+                                  fffe0bf5  fffe0c02         e   1
+P
+                                  fffe0c03  fffe3034      2432   1
+EXCEPTVECT
+                                  ffffff80  fffffffb        7c   4
+RESETVECT
+                                  fffffffc  ffffffff         4   4
+
+*** Symbol List ***
+
+SECTION=
+FILE=                               START        END    SIZE
+  SYMBOL                            ADDR        SIZE    INFO      COUNTS  OPT
+
+SECTION=SU
+FILE=.\src\cg_src\r_cg_resetprg.obj
+                                  00000004  00000103       100
+
+SECTION=SI
+FILE=.\src\cg_src\r_cg_resetprg.obj
+                                  00000104  00000403       300
+
+SECTION=B_1
+FILE=.\src\cg_src\r_cg_cmt_user.obj
+                                  00000404  00000404         1
+  _ov_frame
+                                  00000404         1   data ,g         2
+FILE=.\src\cg_src\r_cg_icu_user.obj
+                                  00000405  00000405         1
+  _ov_sta
+                                  00000405         1   data ,g         2
+
+SECTION=R_1
+FILE=.\src\delay\delay.obj
+                                  00000406  00000406         1
+  _time_flag
+                                  00000406         1   data ,g         2
+FILE=xfiles
+                                  00000407  00000456        50
+  _ebuf
+                                  00000407        50   data ,l         5
+FILE=xstate
+                                  00000457  00000457         1
+  __Mbcurmax
+                                  00000457         1   data ,g         1
+
+SECTION=B_2
+FILE=.\src\cg_src\r_cg_sbrk.obj
+                                  00000458  00000857       400
+  _heap_area
+                                  00000458       400   data ,l         2
+FILE=.\src\cg_src\r_cg_sci.obj
+                                  00000858  0000085d         6
+  _g_sci1_tx_count
+                                  00000858         2   data ,g         2
+  _g_sci1_rx_count
+                                  0000085a         2   data ,g         2
+  _g_sci1_rx_length
+                                  0000085c         2   data ,g         2
+
+SECTION=R_2
+FILE=.\src\delay\delay.obj
+                                  0000085e  0000085f         2
+  _time_count
+                                  0000085e         2   data ,g         2
+
+SECTION=B
+FILE=.\src\cg_src\r_cg_sci.obj
+                                  00000860  00000867         8
+  _gp_sci1_tx_address
+                                  00000860         4   data ,g         2
+  _gp_sci1_rx_address
+                                  00000864         4   data ,g         2
+FILE=_files
+                                  00000868  000008b7        50
+  __Files
+                                  00000868        50   data ,g         1
+FILE=_errno
+                                  000008b8  000008bb         4
+  __errno
+                                  000008b8         4   data ,g         1
+
+SECTION=R
+FILE=.\src\cg_src\r_cg_sbrk.obj
+                                  000008bc  000008bf         4
+  _brk
+                                  000008bc         4   data ,l         1
+FILE=xfiles
+                                  000008c0  00000997        d8
+  __Stdin
+                                  000008c0        48   data ,g         7
+  __Stdout
+                                  00000908        48   data ,g         8
+  __Stderr
+                                  00000950        48   data ,g         3
+FILE=xprintf
+                                  00000998  0000099b         4
+  _stderr
+                                  00000998         4   data ,g         0
+FILE=xctype
+                                  0000099c  000009a3         8
+  __Ctype
+                                  0000099c         4   data ,g         2
+  __Tls_setup__Ctype
+                                  000009a0         4   data ,g         1
+FILE=malloc
+                                  000009a4  000009ab         8
+  __Aldata
+                                  000009a4         8   data ,g         3
+FILE=xstate
+                                  000009ac  000009f3        48
+  __Tls_setup__Mbcurmax
+                                  000009ac         4   data ,g         1
+  __Mbstate
+                                  000009b0        40   data ,g         2
+  __Tls_setup__Mbstate
+                                  000009f0         4   data ,g         2
+FILE=localeco
+                                  000009f4  00000a47        54
+  __Locale
+                                  000009f4        50   data ,g         1
+  __Tls_setup__Locale
+                                  00000a44         4   data ,g         0
+FILE=xwcstate
+                                  00000a48  00000a8b        44
+  __Wcstate
+                                  00000a48        40   data ,g         2
+  __Tls_setup__Wcstate
+                                  00000a88         4   data ,g         2
+FILE=xfvalues
+                                  00000a8c  00000b03        78
+  __FDenorm
+                                  00000a8c        10   data ,g         0
+  __FEps
+                                  00000a9c        10   data ,g         0
+  __FHugeval
+                                  00000aac        10   data ,g         0
+  __FInf
+                                  00000abc        10   data ,g         1
+  __FNan
+                                  00000acc        10   data ,g         0
+  __FSnan
+                                  00000adc        10   data ,g         0
+  __FRteps
+                                  00000aec        10   data ,g         0
+  __FXbig
+                                  00000afc         4   data ,g         0
+  __FZero
+                                  00000b00         4   data ,g         0
+
+SECTION=PResetPRG
+FILE=.\src\cg_src\r_cg_resetprg.obj
+                                  fffe0000  fffe003d        3e
+  _PowerON_Reset_PC
+                                  fffe0000        3e   entry,g         1
+
+SECTION=C_1
+FILE=.\src\ov7670\ov7670.obj
+                                  fffe003e  fffe018d       150
+  _ov7670_init_reg_tbl
+                                  fffe003e       150   data ,g         1
+FILE=xprintf
+                                  fffe018e  fffe0197         a
+  _fchar$1
+                                  fffe018e         a   data ,l         1
+FILE=xputtxt
+                                  fffe0198  fffe023c        a5
+  _spaces
+                                  fffe0198        21   data ,l         1
+  _zeroes
+                                  fffe01b9        21   data ,l         1
+  _asterisk
+                                  fffe01da        21   data ,l         1
+  _plus
+                                  fffe01fb        21   data ,l         1
+  _minus
+                                  fffe021c        21   data ,l         1
+FILE=xlitob
+                                  fffe023d  fffe025e        22
+  _ldigs
+                                  fffe023d        11   data ,l         1
+  _udigs
+                                  fffe024e        11   data ,l         1
+FILE=localeco
+                                  fffe025f  fffe025f         1
+  _null
+                                  fffe025f         1   data ,l         d
+
+SECTION=C_2
+FILE=xctype
+                                  fffe0260  fffe0461       202
+  _ctyp_tab
+                                  fffe0260       202   data ,l         1
+
+SECTION=C
+FILE=.\src\cg_src\r_cg_dbsct.obj
+                                  fffe0464  fffe0497        34
+  __CTBL
+                                  fffe0464        34   data ,g         0
+FILE=xprintf
+                                  fffe0498  fffe04af        18
+  _fbit$2
+                                  fffe0498        18   data ,l         1
+FILE=xldtob
+                                  fffe04b0  fffe04c7        18
+  _pows
+                                  fffe04b0        18   data ,l         1
+FILE=_nfiles
+                                  fffe04c8  fffe04cb         4
+  __nfiles
+                                  fffe04c8         4   data ,g         1
+FILE=_sbrk_si
+                                  fffe04cc  fffe04cf         4
+  __sbrk_size
+                                  fffe04cc         4   data ,g         1
+
+SECTION=C$DSEC
+FILE=.\src\cg_src\r_cg_dbsct.obj
+                                  fffe04d0  fffe04f3        24
+  __DTBL
+                                  fffe04d0        24   data ,g         0
+
+SECTION=C$BSEC
+FILE=.\src\cg_src\r_cg_dbsct.obj
+                                  fffe04f4  fffe050b        18
+  __BTBL
+                                  fffe04f4        18   data ,g         0
+
+SECTION=C$VECT
+FILE=.\src\cg_src\r_cg_dbsct.obj
+                                  fffe050c  fffe090b       400
+
+SECTION=D
+FILE=.\src\cg_src\r_cg_sbrk.obj
+                                  fffe090c  fffe090f         4
+FILE=xfiles
+                                  fffe0910  fffe09e7        d8
+FILE=xprintf
+                                  fffe09e8  fffe09eb         4
+FILE=xctype
+                                  fffe09ec  fffe09f3         8
+FILE=malloc
+                                  fffe09f4  fffe09fb         8
+FILE=xstate
+                                  fffe09fc  fffe0a43        48
+FILE=localeco
+                                  fffe0a44  fffe0a97        54
+FILE=xwcstate
+                                  fffe0a98  fffe0adb        44
+FILE=xfvalues
+                                  fffe0adc  fffe0b53        78
+
+SECTION=D_1
+FILE=.\src\delay\delay.obj
+                                  fffe0b54  fffe0b54         1
+FILE=xfiles
+                                  fffe0b55  fffe0ba4        50
+FILE=xstate
+                                  fffe0ba5  fffe0ba5         1
+
+SECTION=D_2
+FILE=.\src\delay\delay.obj
+                                  fffe0ba6  fffe0ba7         2
+
+SECTION=L
+FILE=.\src\cg_src\r_cg_cmt_user.obj
+                                  fffe0ba8  fffe0bb6         f
+FILE=xprintf
+                                  fffe0bb8  fffe0bbe         7
+FILE=xldtob
+                                  fffe0bc0  fffe0be1        22
+FILE=xgenld
+                                  fffe0be4  fffe0be5         2
+FILE=localeco
+                                  fffe0be8  fffe0bf4         d
+
+SECTION=PIntPRG
+FILE=.\src\cg_src\r_cg_intprg.obj
+                                  fffe0bf5  fffe0c02         e
+  _r_undefined_exception
+                                  fffe0bf5         2   func ,g         1
+  _r_privileged_exception
+                                  fffe0bf7         2   func ,g         1
+  _r_floatingpoint_exception
+                                  fffe0bf9         2   func ,g         1
+  _r_access_exception
+                                  fffe0bfb         2   func ,g         1
+  _r_reserved_exception
+                                  fffe0bfd         2   func ,g        13
+  _r_nmi_exception
+                                  fffe0bff         2   func ,g         1
+  _r_brk_exception
+                                  fffe0c01         2   func ,g         0
+
+SECTION=P
+FILE=.\src\cg_src\r_cg_cgc.obj
+                                  fffe0c03  fffe0c4e        4c
+  _R_CGC_Create
+                                  fffe0c03        4c   func ,g         1
+FILE=.\src\cg_src\r_cg_cmt.obj
+                                  fffe0c4f  fffe0cf4        a6
+  _R_CMT0_Create
+                                  fffe0c4f        2a   func ,g         1
+  _R_CMT0_Start
+                                  fffe0c79        13   func ,g         0
+  _R_CMT0_Stop
+                                  fffe0c8c        16   func ,g         0
+  _R_CMT1_Create
+                                  fffe0ca2        2a   func ,g         2
+  _R_CMT1_Start
+                                  fffe0ccc        13   func ,g         2
+  _R_CMT1_Stop
+                                  fffe0cdf        16   func ,g         0
+FILE=.\src\cg_src\r_cg_cmt_user.obj
+                                  fffe0cf5  fffe0d15        21
+  _r_cmt_cmi0_interrupt
+                                  fffe0cf5         2   func ,l         0
+  _r_cmt_cmi1_interrupt
+                                  fffe0cf7        1f   func ,l         0
+FILE=.\src\cg_src\r_cg_hardware_setup.obj
+                                  fffe0d16  fffe0d4e        39
+  _R_Systeminit
+                                  fffe0d16        37   func ,g         1
+  _HardwareSetup
+                                  fffe0d4d         2   func ,g         1
+FILE=.\src\cg_src\r_cg_icu.obj
+                                  fffe0d4f  fffe0d92        44
+  _R_ICU_Create
+                                  fffe0d4f        34   func ,g         2
+  _R_ICU_IRQ0_Start
+                                  fffe0d83         8   func ,g         1
+  _R_ICU_IRQ0_Stop
+                                  fffe0d8b         8   func ,g         0
+FILE=.\src\cg_src\r_cg_icu_user.obj
+                                  fffe0d93  fffe0daf        1d
+  _r_icu_irq0_interrupt
+                                  fffe0d93        1d   func ,l         0
+FILE=.\src\cg_src\r_cg_main.obj
+                                  fffe0db0  fffe0e87        d8
+  _main
+                                  fffe0db0         8   func ,g         1
+  _R_MAIN_UserInit
+                                  fffe0db8        52   func ,l         1
+  _camera_refresh
+                                  fffe0e0a        7d   func ,g         1
+  _write
+                                  fffe0e87         1   func ,g         2
+FILE=.\src\cg_src\r_cg_port.obj
+                                  fffe0e88  fffe0eb0        29
+  _R_PORT_Create
+                                  fffe0e88        29   func ,g         2
+FILE=.\src\cg_src\r_cg_sbrk.obj
+                                  fffe0eb1  fffe0ed1        21
+  _sbrk
+                                  fffe0eb1        21   func ,g         1
+FILE=.\src\cg_src\r_cg_sci.obj
+                                  fffe0ed2  fffe0fd9       108
+  _R_SCI1_Create
+                                  fffe0ed2        5f   func ,g         1
+  _R_SCI1_Start
+                                  fffe0f31        1b   func ,g         1
+  _R_SCI1_Stop
+                                  fffe0f4c        34   func ,g         0
+  _R_SCI1_Serial_Receive
+                                  fffe0f80        2c   func ,g         0
+  _R_SCI1_Serial_Send
+                                  fffe0fac        2e   func ,g         1
+FILE=.\src\cg_src\r_cg_sci_user.obj
+                                  fffe0fda  fffe1094        bb
+  _r_sci1_transmit_interrupt
+                                  fffe0fda        35   func ,l         0
+  _r_sci1_transmitend_interrupt
+                                  fffe100f        24   func ,l         0
+  _r_sci1_receive_interrupt
+                                  fffe1033        42   func ,l         0
+  _r_sci1_receiveerror_interrupt
+                                  fffe1075        1d   func ,l         0
+  _r_sci1_callback_transmitend
+                                  fffe1092         1   func ,l         1
+  _r_sci1_callback_receiveend
+                                  fffe1093         1   func ,l         1
+  _r_sci1_callback_receiveerror
+                                  fffe1094         1   func ,l         1
+FILE=.\src\delay\delay.obj
+                                  fffe1095  fffe10c9        35
+  _CMT1_Init
+                                  fffe1095         4   func ,g         0
+  _delayms
+                                  fffe1099        1e   func ,g         1
+  _CMT1_IntHandler
+                                  fffe10b7        13   func ,g         0
+FILE=.\src\ov7670\ov7670.obj
+                                  fffe10ca  fffe1321       258
+  _OV7670_Init
+                                  fffe10ca        58   func ,g         1
+  _OV7670_Light_Mode
+                                  fffe1122        54   func ,g         1
+  _OV7670_Color_Saturation
+                                  fffe1176        88   func ,g         1
+  _OV7670_Brightness
+                                  fffe11fe        28   func ,g         0
+  _OV7670_Contrast
+                                  fffe1226        2b   func ,g         1
+  _OV7670_Special_Effects
+                                  fffe1251        5f   func ,g         1
+  _OV7670_Window_Set
+                                  fffe12b0        72   func ,g         1
+FILE=.\src\ov7670\sccb.obj
+                                  fffe1322  fffe14b9       198
+  _delay_us
+                                  fffe1322        18   func ,g        15
+  _SCCB_Init
+                                  fffe133a         e   func ,g         1
+  _SCCB_Start
+                                  fffe1348        1f   func ,g         3
+  _SCCB_Stop
+                                  fffe1367        20   func ,g         3
+  _SCCB_No_Ack
+                                  fffe1387        28   func ,g         1
+  _SCCB_WR_Byte
+                                  fffe13af        50   func ,g         6
+  _SCCB_RD_Byte
+                                  fffe13ff        37   func ,g         1
+  _SCCB_WR_Reg
+                                  fffe1436        3f   func ,g        16
+  _SCCB_RD_Reg
+                                  fffe1475        45   func ,g         4
+FILE=.\src\uart\r_rsk_async.obj
+                                  fffe14ba  fffe14bd         4
+  _R_ASYNC_Init
+                                  fffe14ba         4   func ,g         0
+FILE=printf
+                                  fffe14be  fffe14fc        3f
+  _prout
+                                  fffe14be        1d   func ,l         1
+  _printf
+                                  fffe14db        22   func ,g         1
+FILE=__initsct
+                                  fffe14fd  fffe1546        4a
+  __INITSCT
+                                  fffe14fd         0   none ,g         1
+  loop1
+                                  fffe150f         0   none ,l         1
+  next_loop1
+                                  fffe151d         0   none ,l         2
+  loop3
+                                  fffe152f         0   none ,l         1
+  next_loop3
+                                  fffe1540         0   none ,l         2
+FILE=fwrite
+                                  fffe1547  fffe1619        d3
+  _fwrite
+                                  fffe1547        d3   func ,g         1
+FILE=xprintf
+                                  fffe161a  fffe1884       26b
+  __Printf
+                                  fffe161a       26b   func ,g         1
+FILE=fflush
+                                  fffe1885  fffe1907        83
+  _fflush
+                                  fffe1885        83   func ,g         4
+FILE=xfwprep
+                                  fffe1908  fffe19a0        99
+  __Fwprep
+                                  fffe1908        99   func ,g         1
+FILE=xputfld
+                                  fffe19a1  fffe1e37       497
+  __Putfld
+                                  fffe19a1       497   func ,g         1
+FILE=xvacopy
+                                  fffe1e38  fffe1e3f         8
+  __Vacopy
+                                  fffe1e38         8   func ,g         2
+FILE=xputtxt
+                                  fffe1e40  fffe2124       2e5
+  __Puttxt
+                                  fffe1e40       2e5   func ,g         3
+FILE=strchr
+                                  fffe2125  fffe2137        13
+  _strchr
+                                  fffe2125        13   func ,g         2
+FILE=xctype
+                                  fffe2138  fffe214d        16
+  __Getpctype
+                                  fffe2138        16   func ,g         0
+FILE=xldtob
+                                  fffe214e  fffe253c       3ef
+  __Ldtob
+                                  fffe214e       3ef   func ,g         1
+FILE=xputstr
+                                  fffe253d  fffe261c        e0
+  __Putstr
+                                  fffe253d        e0   func ,g         1
+FILE=xlitob
+                                  fffe261d  fffe2732       116
+  __Litob
+                                  fffe261d       116   func ,g         1
+FILE=malloc
+                                  fffe2733  fffe2810        de
+  _findmem
+                                  fffe2733        7b   func ,l         1
+  _malloc
+                                  fffe27ae        63   func ,g         2
+FILE=xgenld
+                                  fffe2811  fffe2ad1       2c1
+  __Genld
+                                  fffe2811       2c1   func ,g         1
+FILE=xwctomb
+                                  fffe2ad2  fffe2c27       156
+  __Wctombx
+                                  fffe2ad2       110   func ,g         1
+  __Wctomb
+                                  fffe2be2        46   func ,g         1
+FILE=xstate
+                                  fffe2c28  fffe2c59        32
+  __Getmbcurmax
+                                  fffe2c28        16   func ,g         2
+  __Getpmbstate
+                                  fffe2c3e        1c   func ,g         0
+FILE=xldscale
+                                  fffe2c5a  fffe2c5d         4
+  __LDscale
+                                  fffe2c5a         4   func ,g         1
+FILE=xldunsca
+                                  fffe2c5e  fffe2c61         4
+  __LDunscale
+                                  fffe2c5e         4   func ,g         1
+FILE=__COM_DIV64u
+                                  fffe2c62  fffe2cfa        99
+  __COM_DIV64u
+                                  fffe2c62         0   none ,g         2
+  _Loop_Init
+                                  fffe2c6c         0   none ,l         2
+  _Loop
+                                  fffe2c74         0   none ,l         1
+  _DivStart
+                                  fffe2c80         0   none ,l         3
+  _Success
+                                  fffe2c8e         0   none ,l         1
+  _DivEnd
+                                  fffe2c9a         0   none ,l         0
+  IXI6DIV
+                                  fffe2c9f         0   none ,l         1
+  IXI4DIV
+                                  fffe2cb1         0   none ,l         1
+  IXI2DIV
+                                  fffe2cc1         0   none ,l         1
+  I8I2DIV
+                                  fffe2cc9         0   none ,l         1
+  I4I2DIV
+                                  fffe2cf7         0   none ,l         1
+  _i8divU_End
+                                  fffe2cfa         0   none ,l         0
+FILE=__COM_MOD64u
+                                  fffe2cfb  fffe2d81        87
+  __COM_MOD64u
+                                  fffe2cfb         0   none ,g         1
+  _Loop_Init
+                                  fffe2d05         0   none ,l         2
+  _Loop
+                                  fffe2d09         0   none ,l         1
+  _DivStart
+                                  fffe2d15         0   none ,l         3
+  _Success
+                                  fffe2d23         0   none ,l         1
+  _DivEnd
+                                  fffe2d2b         0   none ,l         0
+  IXI6DIV
+                                  fffe2d2c         0   none ,l         1
+  IXI4DIV
+                                  fffe2d3e         0   none ,l         1
+  IXI2DIV
+                                  fffe2d4e         0   none ,l         1
+  I8I2DIV
+                                  fffe2d56         0   none ,l         1
+  I4I2DIV
+                                  fffe2d76         0   none ,l         1
+FILE=_div
+                                  fffe2d82  fffe2d8d         c
+  _ldiv
+                                  fffe2d82         0   none ,g         1
+  _div
+                                  fffe2d82         0   none ,g         1
+FILE=free
+                                  fffe2d8e  fffe2e10        83
+  _free
+                                  fffe2d8e        83   func ,g         2
+FILE=xgetmem
+                                  fffe2e11  fffe2e2b        1b
+  __Getmem
+                                  fffe2e11        1b   func ,g         1
+FILE=localeco
+                                  fffe2e2c  fffe2e32         7
+  _localeconv
+                                  fffe2e2c         7   func ,g         1
+FILE=xwcstate
+                                  fffe2e33  fffe2e4e        1c
+  __Getpwcstate
+                                  fffe2e33        1c   func ,g         0
+FILE=xfdscale
+                                  fffe2e4f  fffe2f66       118
+  __FDscale
+                                  fffe2e4f       118   func ,g         1
+FILE=xfdunsca
+                                  fffe2f67  fffe2fbf        59
+  __FDunscale
+                                  fffe2f67        59   func ,g         1
+FILE=xfdnorm
+                                  fffe2fc0  fffe3034        75
+  __FDnorm
+                                  fffe2fc0        75   func ,g         2
+
+SECTION=EXCEPTVECT
+FILE=.\src\cg_src\r_cg_vecttbl.obj
+                                  ffffff80  fffffffb        7c
+  _Excpt_Vectors
+                                  ffffff80        7c   data ,g         0
+
+SECTION=RESETVECT
+FILE=.\src\cg_src\r_cg_vecttbl.obj
+                                  fffffffc  ffffffff         4
+  _Reset_Vectors
+                                  fffffffc         4   data ,g         0
+
+*** Unfilled Areas ***
+
+AREA                                START    END
+
+*** Delete Symbols ***
+
+SYMBOL                                SIZE    INFO
