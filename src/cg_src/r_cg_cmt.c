@@ -112,10 +112,12 @@ void R_CMT1_Create(void)
 
     /* Set control registers */
     CMT1.CMCR.WORD = _0003_CMT_CMCR_CKS_PCLK512 | _0040_CMT_CMCR_CMIE_ENABLE | _0080_CMT_CMCR_DEFAULT;
-    CMT1.CMCOR = _9896_CMT1_CMCOR_VALUE;
+//    CMT1.CMCOR = _9896_CMT1_CMCOR_VALUE;
+    CMT1.CMCOR = _0F41_CMT1_CMCOR_VALUE;
 
     /* Set CMI1 priority level */
-    IPR(CMT1,CMI1) = _0F_CMT_PRIORITY_LEVEL15;
+//    IPR(CMT1,CMI1) = _0F_CMT_PRIORITY_LEVEL15;
+    IPR(CMT1,CMI1) =_0E_CMT_PRIORITY_LEVEL14;
 }
 /***********************************************************************************************************************
 * Function Name: R_CMT1_Start

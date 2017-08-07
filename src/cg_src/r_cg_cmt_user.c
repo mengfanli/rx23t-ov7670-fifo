@@ -38,6 +38,7 @@ Includes
 #include "r_cg_macrodriver.h"
 #include "r_cg_cmt.h"
 /* Start user code for include. Do not edit comment generated here */
+#include "../ov7670/camera.h"
 /* End user code. Do not edit comment generated here */
 #include "r_cg_userdefine.h"
 
@@ -80,7 +81,8 @@ static void r_cmt_cmi1_interrupt(void)
 {
     /* Start user code. Do not edit comment generated here */
 //	printf("frame:%d fps\r\n",ov_frame);	//打印帧率
-	ov_frame=0;
+//	ov_frame=0;
+	  CMT1_IntHandler();
     /* End user code. Do not edit comment generated here */
 }
 
