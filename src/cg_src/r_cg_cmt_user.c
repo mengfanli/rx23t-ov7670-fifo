@@ -63,6 +63,7 @@ uint8_t ov_frame; 	//统计帧数
 static void r_cmt_cmi0_interrupt(void)
 {
     /* Start user code. Do not edit comment generated here */
+	setpsw_i();
 	CMT0_IntHandler();
     /* End user code. Do not edit comment generated here */
 }

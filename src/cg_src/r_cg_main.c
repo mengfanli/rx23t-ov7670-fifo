@@ -102,9 +102,6 @@ void R_MAIN_UserInit(void)
 //	OV7670_Contrast(contrast);
 // 	OV7670_Special_Effects(effect);
 
-// 	OV7670_Window_Set(12,176,240,320);	//设置窗口
-//	OV7670_Window_Set(184,10,width,height);
-// 	OV7670_config_window(10,184,width,height);
  	OV7670_CS=0;
 	while(cam_init())//初始化OV7670
 	{
@@ -112,12 +109,12 @@ void R_MAIN_UserInit(void)
 	}
 	while(1)
 	{
-		read_img_from_FIFO();//更新显示
-		image_binaryzation(60);
-		detect_point();
-		put_image_to_show();
-
-
+		if(read_img_from_FIFO())//更新显示
+		{
+			image_binaryzation(120);
+			detect_point();
+			put_image_to_show();
+		}
 	}
     /* End user code. Do not edit comment generated here */
 }

@@ -66,7 +66,7 @@ void R_CMT0_Create(void)
     CMT0.CMCOR = _04E1_CMT0_CMCOR_VALUE;
 
     /* Set CMI0 priority level */
-    IPR(CMT0,CMI0) = _0F_CMT_PRIORITY_LEVEL15;
+    IPR(CMT0,CMI0) = _0D_CMT_PRIORITY_LEVEL13;
 }
 /***********************************************************************************************************************
 * Function Name: R_CMT0_Start

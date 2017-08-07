@@ -20,6 +20,7 @@
 static bool first_VSYNC = true;
 static bool start_get_image = false;
 static bool new_frame_FIFO_ready = false;
+//static bool frame_waite_send = false;
 
 //static uint8_t img[CAM_WIDTH * CAM_HEIGHT * 2];
 //
@@ -48,7 +49,6 @@ static void get_none(void);
 /* public functions definitions. */
 uint8_t cam_init(void)
 {
-    uint8_t device_id;
     uint16_t i=0;
     uint8_t temp;
     /* restore. */
@@ -113,11 +113,9 @@ uint8_t read_img_from_FIFO(void)
 
 void put_image_to_show()
 {
-//	yuv_to_gray(img);
-	R_SCI1_AsyncTransmit(start,2);
-	R_SCI1_AsyncTransmit(img_gray,CAM_WIDTH * CAM_HEIGHT);
-	R_SCI1_AsyncTransmit(end,2);
-
+		R_SCI1_AsyncTransmit(start,2);
+		R_SCI1_AsyncTransmit(img_gray,CAM_WIDTH * CAM_HEIGHT);
+		R_SCI1_AsyncTransmit(end,2);
 }
 void yuv_to_gray(unsigned char *image)
 {
