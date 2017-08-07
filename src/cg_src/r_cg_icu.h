@@ -23,7 +23,7 @@
 * Device(s)    : R5F523T5AxFM
 * Tool-Chain   : CCRX
 * Description  : This file implements device driver for ICU module.
-* Creation Date: 2017/8/6
+* Creation Date: 2017/8/7
 ***********************************************************************************************************************/
 #ifndef ICU_H
 #define ICU_H

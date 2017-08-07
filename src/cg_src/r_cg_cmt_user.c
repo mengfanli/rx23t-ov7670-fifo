@@ -23,7 +23,7 @@
 * Device(s)    : R5F523T5AxFM
 * Tool-Chain   : CCRX
 * Description  : This file implements device driver for CMT module.
-* Creation Date: 2017/8/6
+* Creation Date: 2017/8/7
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -83,7 +83,7 @@ static void r_cmt_cmi1_interrupt(void)
     /* Start user code. Do not edit comment generated here */
 //	printf("frame:%d fps\r\n",ov_frame);	//打印帧率
 //	ov_frame=0;
-	  CMT1_IntHandler();
+//	  CMT1_IntHandler();
     /* End user code. Do not edit comment generated here */
 }
 

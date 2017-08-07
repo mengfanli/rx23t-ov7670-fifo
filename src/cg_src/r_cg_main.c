@@ -23,7 +23,7 @@
 * Device(s)    : R5F523T5AxFM
 * Tool-Chain   : CCRX
 * Description  : This file implements main function.
-* Creation Date: 2017/8/6
+* Creation Date: 2017/8/7
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -91,7 +91,7 @@ void R_MAIN_UserInit(void)
     /* Start user code. Do not edit comment generated here */
 	uint8_t lightmode=0,saturation=2,contrast=2,effect=0;
 
-//	R_CMT0_Start();
+	R_CMT0_Start();
 //	R_CMT1_Start();
 	R_SCI1_Start();
 	R_SCI5_Start();

@@ -21701,7 +21701,7 @@
               </DataElement>
               <DataElement key="Attach" value="PB1">
               </DataElement>
-              <DataElement key="MutexType" value="NoMutex">
+              <DataElement key="MutexType" value="NoMutex, PinMutex">
               </DataElement>
               <DataElement key="Visible" value="True">
               </DataElement>
@@ -24648,7 +24648,7 @@
             </DataElement>
             <DataElement key="Attach" value="PB2">
             </DataElement>
-            <DataElement key="MutexType" value="NoMutex">
+            <DataElement key="MutexType" value="NoMutex, PinMutex">
             </DataElement>
             <DataElement key="Visible" value="True">
             </DataElement>
@@ -27121,7 +27121,7 @@
           </DataElement>
         </SerializableData>
         <SerializableData name="CMTn_CLOCK_SELECT_PCLK32">
-          <DataElement key="Checked" value="True">
+          <DataElement key="Checked" value="False">
           </DataElement>
         </SerializableData>
         <SerializableData name="CMTn_CLOCK_SELECT_PCLK128">
@@ -27129,11 +27129,11 @@
           </DataElement>
         </SerializableData>
         <SerializableData name="CMTn_CLOCK_SELECT_PCLK512">
-          <DataElement key="Checked" value="False">
+          <DataElement key="Checked" value="True">
           </DataElement>
         </SerializableData>
         <SerializableData name="CMTn_INTERVAL_VALUE">
-          <DataElement key="Text" value="1">
+          <DataElement key="Text" value="20">
           </DataElement>
         </SerializableData>
         <SerializableData name="CMTn_INTERVAL_UNIT">
@@ -27237,7 +27237,7 @@
         <SerializableData name="CMIn_PRIORITY">
           <DataElement key="ContentItemCount" value="16">
           </DataElement>
-          <DataElement key="SelectedContentItem" value="Level15">
+          <DataElement key="SelectedContentItem" value="Level13">
           </DataElement>
           <SerializableData name="ContentItem1">
             <DataElement key="Pin" value="">
@@ -35576,7 +35576,7 @@
             </DataElement>
             <DataElement key="Attach" value="PB1">
             </DataElement>
-            <DataElement key="MutexType" value="NoMutex">
+            <DataElement key="MutexType" value="NoMutex, PinMutex">
             </DataElement>
             <DataElement key="Visible" value="True">
             </DataElement>
@@ -35604,7 +35604,7 @@
             </DataElement>
             <DataElement key="Attach" value="PB2">
             </DataElement>
-            <DataElement key="MutexType" value="NoMutex">
+            <DataElement key="MutexType" value="NoMutex, PinMutex">
             </DataElement>
             <DataElement key="Visible" value="True">
             </DataElement>

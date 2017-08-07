@@ -29,6 +29,7 @@ static const int collect_h_step = OV_HEIGHT / CAM_HEIGHT;
 uint8_t gray;
 uint8_t start[2]={0x01,0xfe};
 uint8_t end[2]={0xfe,0x01};
+uint8_t location_flag=255;
 uint8_t point_x,point_y;
 
 /* private functions declarations. */
@@ -146,8 +147,6 @@ void detect_point()
 void point_detect(uint8_t *img_buf,uint8_t img_width,uint8_t img_hight,uint8_t *point_x,uint8_t *point_y)
 {
 	uint8_t i,j;
-	static uint8_t n=255;
-	uint8_t flag=255;
 //	uint32_t size=img_width*img_hight;
 	uint32_t location_sum_h=0;
 	uint32_t location_sum_w=0;
@@ -183,12 +182,7 @@ void point_detect(uint8_t *img_buf,uint8_t img_width,uint8_t img_hight,uint8_t *
 	*point_y=(uint8_t)(location_sum_h/black_point_num);
 //	*point_y=location%img_width;
 	}
-	n--;
-	if(n==0)n=255;
-	R_SCI5_AsyncTransmit(&flag,1);
-	R_SCI5_AsyncTransmit(&n,1);
-	R_SCI5_AsyncTransmit(point_x,1);
-	R_SCI5_AsyncTransmit(point_y,1);
+
 
 }
 
@@ -199,12 +193,16 @@ void get_img(unsigned char **image, int *width, int *height)
 //    *height = CAM_HEIGHT;
 }
 
-void CMT1_IntHandler(void)
+void CMT0_IntHandler(void)
 {
-  R_SCI1_AsyncTransmit(point_x,1);
-  R_SCI1_AsyncTransmit(point_y,1);
+	send_location();
 }
-
+void send_location()
+{
+	R_SCI5_AsyncTransmit(&location_flag,1);
+	R_SCI5_AsyncTransmit(&point_x,1);
+	R_SCI5_AsyncTransmit(&point_y,1);
+}
 void IRQ0_IntHandler(void)
 {
     if (first_VSYNC && start_get_image) {

@@ -34,7 +34,3 @@ void delay_us(int us)
 	for(i = 0;i<a;i++);
 }
 
-void CMT0_IntHandler(void)
-{
-    time_count += time_flag;
-}

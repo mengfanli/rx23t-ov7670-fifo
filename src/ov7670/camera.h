@@ -22,7 +22,8 @@ extern void get_img(unsigned char **image, int *width, int *height);
 void image_binaryzation(uint8_t threshold);
 void point_detect(uint8_t *img_buf,uint8_t img_width,uint8_t img_hight,uint8_t *point_x,uint8_t *point_y);
 void yuv_to_gray(unsigned char *image);
-void CMT1_IntHandler(void);
+void CMT0_IntHandler(void);
+void send_location(void);
 uint8_t image_binaryzation_fix(uint8_t *img_buf, uint32_t size,uint8_t threshold);
 
 #endif /* CAMERA_H_ */

@@ -23,7 +23,7 @@
 * Device(s)    : R5F523T5AxFM
 * Tool-Chain   : CCRX
 * Description  : This file implements device driver for SCI module.
-* Creation Date: 2017/8/6
+* Creation Date: 2017/8/7
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -233,7 +233,7 @@ static void r_sci5_transmit_interrupt(void)
 static void r_sci5_transmitend_interrupt(void)
 {
     /* Set TXD5 pin */
-    PORTB.PMR.BYTE &= 0xFBU;//0000 0100//1011
+    PORTB.PMR.BYTE &= 0xFBU;
     SCI5.SCR.BIT.TIE = 0U;
     SCI5.SCR.BIT.TE = 0U;
     SCI5.SCR.BIT.TEIE = 0U;

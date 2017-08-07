@@ -23,7 +23,7 @@
 * Device(s)    : R5F523T5AxFM
 * Tool-Chain   : CCRX
 * Description  : This file implements device driver for CMT module.
-* Creation Date: 2017/8/6
+* Creation Date: 2017/8/7
 ***********************************************************************************************************************/
 #ifndef CMT_H
 #define CMT_H
@@ -68,9 +68,8 @@ Macro definitions (Register bit)
 /***********************************************************************************************************************
 Macro definitions
 ***********************************************************************************************************************/
-#define _04E1_CMT0_CMCOR_VALUE                  (0x04E1U) /* Compare match value */
-//#define _9896_CMT1_CMCOR_VALUE                  (0x9896U) /* Compare match value */
-#define _0F41_CMT1_CMCOR_VALUE                  (0x0F41U) /* Compare match value */
+#define _061A_CMT0_CMCOR_VALUE                  (0x061AU) /* Compare match value */
+#define _9896_CMT1_CMCOR_VALUE                  (0x9896U) /* Compare match value */
 
 /***********************************************************************************************************************
 Typedef definitions
